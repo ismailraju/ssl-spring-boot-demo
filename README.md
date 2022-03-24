@@ -7,15 +7,15 @@
 
 The two most common formats used for keystores are JKS, a proprietary format specific for Java, and PKCS12, an industry-standard format. JKS used to be the default choice, but since Java 9 it's PKCS12 the recommended format
 
-### Generate JKS keystore:
+ #### Generate JKS keystore:
 
-keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype JKS -keystore springboot.jks -validity 3650 -storepass password
+```keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype JKS -keystore springboot.jks -validity 3650 -storepass password```
 
 
- PKCS12 keystore:
+ #### Generate PKCS12 keystore:
  
  
- keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype PKCS12 -keystore springboot.p12 -validity 3650 -storepass password
+ ```keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype PKCS12 -keystore springboot.p12 -validity 3650 -storepass password```
  
  
  PS C:\Users\Asus\Downloads\ssl-demo\ssl-demo> keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype PKCS12 -keystore springboot.p12 -validity 3650 -storepass password
@@ -62,7 +62,7 @@ keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype JKS -
    
    
    
-   Convert a JKS keystore into PKCS12
+   #### Convert a JKS keystore into PKCS12
    Should we have already a JKS keystore, we have the option to migrate it to PKCS12; keytool has a convenient command for that:
   
   
@@ -71,7 +71,7 @@ keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype JKS -
   
   
   
-   Use an existing SSL certificate
+#### Use an existing SSL certificate
    
  In case we have already got an SSL certificate, for example, one issued by Let's Encrypt, we can import it into a keystore and use it to enable HTTPS in a Spring Boot application.
  
@@ -84,12 +84,12 @@ keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype JKS -
  
    
    
-   Redirect to HTTPS with Spring Security
+#### Redirect to HTTPS with Spring Security
    
    
    
    
-    Multiple connectors for HTTP and HTTPS
+#### Multiple connectors for HTTP and HTTPS
     
     Spring allows defining just one network connector in application.properties (or application.yml). We used it for HTTPS and relied on Spring Security to redirect all HTTP traffic to HTTPS.
     
@@ -103,12 +103,12 @@ keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype JKS -
    
    
    
-   Distribute the SSL certificate to clients
+#### Distribute the SSL certificate to clients
    
    
    
    
-   Extract an SSL certificate from a keystore
+#### Extract an SSL certificate from a keystore
    We have stored our certificate inside a keystore, so we need to extract it.
    
    
@@ -118,7 +118,7 @@ keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype JKS -
    
    
    
-   import an SSL certificate inside the JRE keystore
+#### import an SSL certificate inside the JRE keystore
    
    keytool -importcert -file myCertificate.crt -alias springboot -keystore $JDK_HOME/jre/lib/security/cacerts
    
