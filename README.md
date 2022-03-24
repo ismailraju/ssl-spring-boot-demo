@@ -1,9 +1,13 @@
-"# ssl-spring-boot-demo" 
+## SSL Spring-boot Demo
 
-cd D:\Program Files\Java\jdk1.8.0_111\bin
+### Check keystore in env path
+```keytool -help``` otherwise go to this path 
+```cd %JAVA_HOME%\bin``` and run ```keytool -help```.
+
 
 The two most common formats used for keystores are JKS, a proprietary format specific for Java, and PKCS12, an industry-standard format. JKS used to be the default choice, but since Java 9 it's PKCS12 the recommended format
-generate JKS keystore:
+
+### Generate JKS keystore:
 
 keytool -genkeypair -alias springboot -keyalg RSA -keysize 4096 -storetype JKS -keystore springboot.jks -validity 3650 -storepass password
 
